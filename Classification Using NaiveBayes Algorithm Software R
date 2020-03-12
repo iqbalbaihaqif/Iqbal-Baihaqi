@@ -2,8 +2,6 @@
 > library(readxl)
 > yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
 > View(yourfile)
-> library(caret)
-> library(caTools)
 > mydata<-data.frame(yourfile)
 > mydata
 #splitdataset
