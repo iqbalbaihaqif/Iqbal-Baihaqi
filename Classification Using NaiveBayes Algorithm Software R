@@ -5,6 +5,7 @@
 > mydata<-data.frame(yourfile)
 > mydata
 #splitdataset
+> library(caTools)
 > set.seed(123)
 > split=sample.split(mydata,SplitRatio = 0.8)
 > training=subset(mydata,split==TRUE)
