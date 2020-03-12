@@ -1,0 +1,21 @@
+#Importyourfile
+> library(readxl)
+> yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> View(yourfile)
+> library(caret)
+> library(caTools)
+> mydata<-data.frame(yourfile)
+> mydata
+#splitdataset
+> set.seed(123)
+> split=sample.split(mydata,SplitRatio = 0.8)
+> training=subset(mydata,split==TRUE)
+> testing=subset(mydata,split==FALSE)
+> modelknn<-train(y~Age+balance+duration,data=training,method="knn")
+> predknn<-predict(modelknn,testing)
+> predknn
+> table(predknn,testing$y)
+> testing$y<-factor(testing$y)
+> confusionMatrix(predknn,testing$y)
+
+
