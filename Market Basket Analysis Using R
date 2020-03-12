@@ -1,8 +1,8 @@
 #CarainputdatakeR
 > library(readxl)
-> datano1 <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/datano1.xlsx")
-> View(datano1)
-> mydata<-data.frame(datano1)
+> datano1 <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> View(yourfile)
+> mydata<-data.frame(yourfile)
 > mydata
 #MencarifrequentitemsetdengansoftwareR
 > library(arules)
