@@ -1,0 +1,22 @@
+#Importyourfile
+> library(readxl)
+> yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> View(yourfile)
+> mydata<-data.frame(yourfile)
+> mydata
+> library(cluster)
+> library(factoextra)
+#prosessnormalisasi
+> X<-mydata[,-1]
+> X
+> merk<-mydata[,1]
+> merk
+> Xs<-scale(X)
+> Xs
+> rownames(Xs)<-merk
+> Xs
+#kmeansalgorithmproses
+> library(cluster)
+> fit<-kmeans(Xs,4)
+> layout(1,1)
+> clusplot(Xs,fit$cluster,main="Representasi 2D Solusi Non Hierarchical Clustering",color=TRUE,shade = TRUE,labels=2,lines = 0)
