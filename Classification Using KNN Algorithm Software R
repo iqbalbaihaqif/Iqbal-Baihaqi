@@ -11,6 +11,7 @@
 > split=sample.split(mydata,SplitRatio = 0.8)
 > training=subset(mydata,split==TRUE)
 > testing=subset(mydata,split==FALSE)
+#knnalgorithm
 > modelknn<-train(y~Age+balance+duration,data=training,method="knn")
 > predknn<-predict(modelknn,testing)
 > predknn
