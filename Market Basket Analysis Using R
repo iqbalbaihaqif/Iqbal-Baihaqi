@@ -1,1 +1,15 @@
-cOBA
+#CarainputdatakeR
+> library(readxl)
+> datano1 <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/datano1.xlsx")
+> View(datano1)
+> mydata<-data.frame(datano1)
+> mydata
+#MencarifrequentitemsetdengansoftwareR
+> library(arules)
+> matrans<-split(mydata$Item,mydata$ID)
+> matrans<-as(matrans,"transactions")
+> summary(matrans)
+> itemFrequencyPlot(matrans,support=0.6)
+#MencariassociationrulesmenggunakansoftwareR
+> myrules<-apriori(data=matrans,parameter = list(support=0.6,confidence=0.75,minlen=1))
+> inspect(myrules)
