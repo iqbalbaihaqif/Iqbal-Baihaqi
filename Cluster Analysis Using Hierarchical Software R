@@ -1,0 +1,35 @@
+#Importyourfile
+> library(readxl)
+> yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> View(yourfile)
+> mydata<-data.frame(yourfile)
+> mydata
+> library(cluster)
+> library(factoextra)
+#prosessnormalisasi
+> X<-mydata[,-1]
+> X
+> merk<-mydata[,1]
+> merk
+> Xs<-scale(X)
+> Xs
+> rownames(Xs)<-merk
+> Xs
+#clusterhierarchicalproses
+> library(cluster)
+> library(factoextra)
+> d<-dist(Xs,method="euclidean")
+> fit1<-hclust(d,method="single")
+> fit2<-hclust(d,method="complete")
+> fit3<-hclust(d,method="average")
+> layout(matrix(1:3,ncol=3))
+> plot(fit1,main = "Single Linkage",sub="",xlab="")
+> groups<-cutree(fit1,k=4)
+> rect.hclust(fit1,k=4,border="red")
+> plot(fit2,main = "Complete Linkage",sub="",xlab="")
+> groups<-cutree(fit2,k=4)
+> rect.hclust(fit2,k=4,border="yellow")
+> plot(fit3,main = "Average Linkage",sub="",xlab="")
+> groups<-cutree(fit3,k=4)
+> rect.hclust(fit3,k=4,border="blue")
+
