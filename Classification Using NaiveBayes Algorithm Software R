@@ -1,0 +1,21 @@
+#Importyourfile
+> library(readxl)
+> yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> View(yourfile)
+> library(caret)
+> library(caTools)
+> mydata<-data.frame(yourfile)
+> mydata
+#splitdataset
+> set.seed(123)
+> split=sample.split(mydata,SplitRatio = 0.8)
+> training=subset(mydata,split==TRUE)
+> testing=subset(mydata,split==FALSE)
+#naivebayesalgorithm
+> library(naivebayes)
+> modelbayes<-naive_bayes(y~Age+balance+duration,data=training)
+> predbayes<-predict(modelbayes,testing)
+> predbayes
+> table(predbayes,testing$y)         
+> confusionMatrix(predbayes,testing$y)
+
