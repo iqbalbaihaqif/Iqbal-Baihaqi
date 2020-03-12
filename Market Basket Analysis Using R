@@ -1,6 +1,6 @@
 #CarainputdatakeR
 > library(readxl)
-> datano1 <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
+> yourfile <- read_excel("C:/Users/Iqbal Baihaqi F/Downloads/yourfile.xlsx")
 > View(yourfile)
 > mydata<-data.frame(yourfile)
 > mydata
